@@ -55,7 +55,7 @@ function Sidebar() {
                                 viewBox="0 0 24 24"
                                 stroke-width="1.5"
                                 stroke="gray"
-                                className='h-4 w-4 hidden group-hover:block'
+                                className='h-4 w-4 hidden group-hover:block hover:stroke-red'
                             >
                                 <path
                                 stroke-linecap="round"
@@ -78,7 +78,7 @@ function Sidebar() {
                                 viewBox="0 0 24 24"
                                 stroke-width="1.5"
                                 stroke="gray"
-                                className='h-4 w-4 hidden group-hover:block'
+                                className='h-4 w-4 hidden group-hover:block hover:stroke-red'
                             >
                                 <path
                                 stroke-linecap="round"
@@ -101,7 +101,7 @@ function Sidebar() {
                                 viewBox="0 0 24 24"
                                 stroke-width="1.5"
                                 stroke="gray"
-                                className='h-4 w-4 hidden group-hover:block'
+                                className='h-4 w-4 hidden group-hover:block hover:stroke-red'
                             >
                                 <path
                                 stroke-linecap="round"

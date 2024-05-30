@@ -19,24 +19,51 @@ function App() {
         className="grid grid-cols-1 transition-[grid-template-columns] lg:grid-cols-[1fr_400px] lg:[&:has(>*:last-child:hover)]:grid-cols-[1fr_550px] bg-gray-100"
       >
         <div className="m-4 relative">
-          <div className='h-full flex flex-col gap-4'>
+          <div className='h-[90svh] flex flex-col gap-2 overflow-scroll pb-8'>
             <div className='p-4 w-11/12 ml-auto drop-shadow-sm'>
-              <span className='flex align-middle gap-1 bg-white w-fit px-2 py-1 mb-1 rounded-full ml-auto' style={{alignItems: "center"}}>
-                <img className='w-6' src={user} alt="" />
+              <span className='flex align-middle gap-1 bg-light-blue w-fit px-2 py-1 mb-1 rounded-full ml-auto' style={{alignItems: "center"}}>
+                <img className='w-6 drop-shadow-lg' src={user} alt="" />
                 <p className='text-sm font-semibold text-dark-blue'>User</p>
               </span>
               <div className='p-4 bg-light-blue rounded-lg'>
-                <p className='text-sm text-gray-700'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris.</p>
+                <p className='text-sm text-gray-800'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris.</p>
               </div>
             </div>
-            <div className='bg-white p-4 rounded-lg w-11/12 mr-auto shadow-sm'>
-              <div className='m-1'>
-                <p className='text-sm text-gray-700'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris. Mauris euismod tempus elementum. Nulla id suscipit libero. Praesent sit amet sapien erat. Nam nec metus porta, tincidunt arcu at, scelerisque leo. Morbi convallis vulputate risus, finibus interdum urna imperdiet vel.</p>
-              </div>
-              <span className='flex align-middle gap-1 bg-light-blue w-fit px-2 py-1 rounded-full mt-2' style={{alignItems: "center"}}>
-                <img className='w-6' src={botwrite} alt="" />
+            <div className='p-4 w-11/12 mr-auto drop-shadow-sm'>
+              <span className='flex align-middle gap-1 bg-white w-fit px-2 py-1 rounded-full mb-1' style={{alignItems: "center"}}>
+                <img className='w-6 drop-shadow-lg' src={botwrite} alt="" />
                 <p className='text-sm font-semibold text-dark-blue'>DBot</p>
               </span>
+              <div className='p-4 bg-white rounded-lg'>
+                <p className='text-sm text-gray-800'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris. Mauris euismod tempus elementum. Nulla id suscipit libero. Praesent sit amet sapien erat. Nam nec metus porta, tincidunt arcu at, scelerisque leo. Morbi convallis vulputate risus, finibus interdum urna imperdiet vel.</p>
+              </div>
+            </div>
+            <div className='p-4 w-11/12 ml-auto drop-shadow-sm'>
+              <span className='flex align-middle gap-1 bg-light-blue w-fit px-2 py-1 mb-1 rounded-full ml-auto' style={{alignItems: "center"}}>
+                <img className='w-6 drop-shadow-lg' src={user} alt="" />
+                <p className='text-sm font-semibold text-dark-blue'>User</p>
+              </span>
+              <div className='p-4 bg-light-blue rounded-lg'>
+                <p className='text-sm text-gray-800'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris.</p>
+              </div>
+            </div>
+            <div className='p-4 w-11/12 mr-auto drop-shadow-sm'>
+              <span className='flex align-middle gap-1 bg-white w-fit px-2 py-1 rounded-full mb-1' style={{alignItems: "center"}}>
+                <img className='w-6 drop-shadow-lg' src={botwrite} alt="" />
+                <p className='text-sm font-semibold text-dark-blue'>DBot</p>
+              </span>
+              <div className='p-4 bg-white rounded-lg'>
+                <p className='text-sm text-gray-800'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris. Mauris euismod tempus elementum. Nulla id suscipit libero. Praesent sit amet sapien erat. Nam nec metus porta, tincidunt arcu at, scelerisque leo. Morbi convallis vulputate risus, finibus interdum urna imperdiet vel.</p>
+              </div>
+            </div>
+            <div className='p-4 w-11/12 ml-auto drop-shadow-sm'>
+              <span className='flex align-middle gap-1 bg-light-blue w-fit px-2 py-1 mb-1 rounded-full ml-auto' style={{alignItems: "center"}}>
+                <img className='w-6 drop-shadow-lg' src={user} alt="" />
+                <p className='text-sm font-semibold text-dark-blue'>User</p>
+              </span>
+              <div className='p-4 bg-light-blue rounded-lg'>
+                <p className='text-sm text-gray-800'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dapibus tortor nec enim mattis placerat. Donec nec erat iaculis, commodo nisl et, pharetra turpis. Duis vitae nisl at risus convallis laoreet id eget mauris.</p>
+              </div>
             </div>
           </div>
           <div className="absolute bottom-0 w-full">
