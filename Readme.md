@@ -9,8 +9,6 @@ Deployment: [Live Here!](https://db-bot.vercel.app)
 
 - The application uses OpenAI's GPT-3.5-turbo model to convert user queries into SQL commands and execute them against the database.
 
-#
-
 ## Documentation
 
 ### Local Configuration
