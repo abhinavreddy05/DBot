@@ -40,7 +40,7 @@ flask run --port 8888 --debug
 
 ### Flow
 
-![Flow](./flow.png "flow")
+![Flow](./flow1.png "flow")
 
 ### Objectives:
 - Simple chat interface. (Similar to ChatGPT)
