@@ -21,7 +21,8 @@ function Sidebar() {
                     <ul className="mt-2 space-y-1">
                         <li>
                             <a
-                                href="#"
+                                href="https://github.com/abhinavreddy05/DBot/blob/main/database/"
+                                target='_blank'
                                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                             >
                                 Database
@@ -30,7 +31,8 @@ function Sidebar() {
 
                         <li>
                             <a
-                                href="#"
+                                href="https://github.com/abhinavreddy05/DBot/blob/main/Readme.md"
+                                target='_blank'
                                 className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                             >
                                 Documentation
