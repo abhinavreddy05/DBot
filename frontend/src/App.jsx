@@ -3,7 +3,7 @@ import { useState, useRef } from 'react'
 import Sidebar from './components/sidebar'
 import Sqlbar from './components/sqlbar'
 import axios from 'axios';
-import { marked, use } from 'marked'
+import { marked } from 'marked'
 
 import botwrite from './assets/botwrite.svg'
 import user from './assets/user.svg'
@@ -13,10 +13,12 @@ function App() {
   const [messages, setMessages] = useState([])
   const [sqlQuery, setSqlQuery] = useState('')
   const [userInput, setUserInput] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const inputRef = useRef(null)
 
   const sendMessage = async () => {
+    setLoading(true)
     setMessages([...messages, { role: 'user', message: userInput }])
     console.log(userInput)
     setUserInput('')
@@ -32,9 +34,11 @@ function App() {
       console.log(response.data)
 
       setMessages(prevMessages => [...prevMessages, { role: 'bot', message: response.data.message }]);
-      setSqlQuery(marked.parse(response.data.sql.query));
+      setSqlQuery(response.data.sql.query);
+      setLoading(false)
     } catch (error) {
       console.error(error)
+      setLoading(false)
     }
   }
 
@@ -82,14 +86,27 @@ function App() {
           <div className="absolute bottom-0 w-full">
               <label htmlFor="Search" className="sr-only"> Search </label>
 
-              <input
-                ref={inputRef}
-                type="text"
-                id="Search"
-                placeholder="Message DBot"
-                onChange={(e) => setUserInput(e.target.value)}
-                className="w-full h-14 rounded-full border-gray-200 pl-8 py-2.5 pe-12 shadow-sm sm:text-sm"
-              />
+              {loading ? (
+                <input
+                  ref={inputRef}
+                  type="text"
+                  id="Search"
+                  disabled={loading}
+                  placeholder="Loading...Please wait!"
+                  onChange={(e) => setUserInput(e.target.value)}
+                  className="w-full h-14 rounded-full border-gray-200 pl-8 py-2.5 pe-12 shadow-sm sm:text-sm"
+                />
+              ) : (
+                <input
+                  ref={inputRef}
+                  type="text"
+                  id="Search"
+                  disabled={loading}
+                  placeholder="Message DBot"
+                  onChange={(e) => setUserInput(e.target.value)}
+                  className="w-full h-14 rounded-full border-gray-200 pl-8 py-2.5 pe-12 shadow-sm sm:text-sm"
+                />
+              )}
 
               <span className="absolute inset-y-0 end-2 grid w-10 place-content-center">
                 <button onClick={sendMessage} type="submit" className="text-dark-blue hover:text-white bg-light-blue hover:bg-dark-blue rounded-full">
