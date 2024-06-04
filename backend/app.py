@@ -7,11 +7,13 @@ import re
 
 from flask import Flask
 from flask import jsonify, request
+from flask_cors import CORS
 
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.agent_toolkits import create_sql_agent
 from langchain.agents.agent_toolkits import create_retriever_tool
 from langchain_community.utilities import SQLDatabase
+from langchain.callbacks.base import BaseCallbackHandler
 
 from langchain_community.vectorstores import FAISS
 from langchain_core.example_selectors import SemanticSimilarityExampleSelector
@@ -23,14 +25,28 @@ from langchain_core.prompts import (
     SystemMessagePromptTemplate,
 )
 
-OPENAI_API_KEY = "sk-proj-009grllizHl1fzkhwIcpT3BlbkFJEoNXTRKA1NkX9gtx8VM2"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 db = SQLDatabase.from_uri('sqlite:///database.sqlite')
 
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0, api_key=OPENAI_API_KEY)
 agent_executor = create_sql_agent(llm, db=db, agent_type="openai-tools", verbose=True)
+
+class SQLHandler(BaseCallbackHandler):
+    def __init__(self):
+        print("ESTOOO")
+        self.sql_result = None
+
+    def on_agent_action(self, action, **kwargs):
+        """Run on agent action. if the tool being used is sql_db_query,
+         it means we're submitting the sql and we can 
+         record it as the final sql"""
+
+        if action.tool == "sql_db_query":
+            self.sql_result = action.tool_input
 
 def read_sql_query(sql, db):
     conn = sqlite3.connect(db)
@@ -215,8 +231,9 @@ agent = create_sql_agent(
 def chat():
     message = request.args.get('message', '')
     if message:
-        response = agent.invoke({"input": str(message)})
-        return response
+        handler = SQLHandler()
+        response = agent.invoke({"input": str(message)}, {"callbacks": [handler]})['output']
+        return jsonify({"message": response, "sql": handler.sql_result})
     return jsonify({"message": "No message provided"})
 
 if __name__ == '__main__':

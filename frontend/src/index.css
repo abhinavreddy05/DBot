@@ -1,3 +1,147 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+  .chatbot-text table{
+    width: 100%;             
+    border-collapse: collapse;
+    margin-top: 20px;     
+    margin-bottom: 20px;    
+    background-color: #fff;
+  }
+  
+  .chatbot-text th {
+    background-color: #DDEFFF; 
+    color: #333;         
+    font-weight: bold;        
+    padding: 10px;            
+    text-align: left;         
+    border-bottom: 2px solid #537CA5;
+  }
+  
+  .chatbot-text td {
+    padding: 8px;            
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .chatbot-text tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+  
+  .chatbot-text tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .chatbot-text h1 { 
+    font-size: 2em; 
+    margin-bottom: 0.5em; 
+    font-weight: bold;
+    display: block; 
+    color: black;
+  }
+  .chatbot-text h2 { 
+    font-size: 1.5em; 
+    margin-bottom: 0.5em; 
+    font-weight: 600;
+    display: block; 
+  }
+  .chatbot-text h3 { 
+    font-size: 1.17em; 
+    margin-bottom: 0.5em; 
+    font-weight: 500;
+    display: block;
+    color: black;
+  }
+  .chatbot-text h4 { 
+    font-size: 1.0em; 
+    margin-bottom: 0.5em; 
+    font-weight: bold;
+    display: block; 
+  }
+  .chatbot-text h5 { 
+    font-size: 0.83em; 
+    margin-bottom: 0.5em; 
+    font-weight: 600;
+    display: block; 
+  }
+  .chatbot-text h6 { 
+    font-size: 0.67em; 
+    margin-bottom: 0.5em; 
+    font-weight: 500;
+    display: block; 
+  }
+  .chatbot-text p { 
+    margin-bottom: 1em; 
+    display: block;
+  }
+  .chatbot-text a { 
+    color: blue; 
+    text-decoration: none; 
+    display: inline; 
+  }
+  .chatbot-text a:hover { 
+    text-decoration: underline; 
+  }
+  .chatbot-text strong, .chatbot-text b { 
+    font-weight: bold; 
+    display: inline; 
+  }
+  .chatbot-text em, .chatbot-text i { 
+    font-style: italic; 
+    display: inline; 
+  }
+  .chatbot-text blockquote {
+    margin: 1em 10px;
+    padding: 0.5em 10px;
+    border-left: 5px solid #ccc;
+    background-color: #f9f9f9;
+    display: block;
+  }
+  .chatbot-text ul {
+    padding-left: 20px;
+    margin: 1em 0;
+    list-style-type: disc;
+    display: block;
+  }
+  .chatbot-text ol {
+    padding-left: 20px;
+    margin: 1em 0;
+    list-style-type: decimal;
+    display: block;
+  }
+  .chatbot-text li {
+    padding: 0;
+    margin-bottom: 0.5em;
+    display: list-item;
+  }
+  .chatbot-text code {
+    font-family: monospace;
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+  .chatbot-text pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+    overflow-x: auto;
+    display: block;
+  }
+  .chatbot-text img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  .chatbot-text hr {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 1em 0;
+    display: block;
+  }
+  .chatbot-text del {
+    text-decoration: line-through;
+    display: inline;
+  }

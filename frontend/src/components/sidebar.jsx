@@ -41,7 +41,7 @@ function Sidebar() {
                     </ul>
                 </li>
 
-                <li>
+                {/* <li>
                     <strong className="block text-xs font-medium uppercase text-gray-400"> Previous Conversations </strong>
 
                     <ul className="mt-2 space-y-1">
@@ -114,7 +114,7 @@ function Sidebar() {
                         </a>
                         </li>
                     </ul>
-                </li>
+                </li> */}
 
             </ul>
         </div>

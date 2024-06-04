@@ -12,8 +12,8 @@ Intelligent chatbot for database querying.
 - Intelligent Query Capability + Training the platform
 
 ## Additional Features:
-- [ ] View executed SQL queries
-- [ ] Markdown Support
+- [x] View executed SQL queries
+- [x] Markdown Support
 - [x] Self correction in case of error
 - [ ] History of conversations
 - [ ] Visual representation of data
@@ -57,4 +57,4 @@ Intelligent chatbot for database querying.
 ## Credits
 - UI Library: [HyperUI](https://www.hyperui.dev/)
 - Code-Blocks for SQL code display: [react-code-blocks](https://github.com/rajinwonderland/react-code-blocks)
-- Sample Database: [Sakila example database](https://www.kaggle.com/datasets/atanaskanev/sqlite-sakila-sample-database/data)
+- [Indian Premier League SQLite Database](https://www.kaggle.com/datasets/harsha547/ipldatabase)

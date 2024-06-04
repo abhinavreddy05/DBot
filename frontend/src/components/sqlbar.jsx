@@ -4,29 +4,9 @@ import { CopyBlock, nord } from 'react-code-blocks';
 import botsearch from '../assets/botsearch.svg'
 import error from '../assets/error.svg'
 
-function Sqlbar() {
+function Sqlbar({ query }) {
 
-  const code = `
-  SELECT column_name(s)
-  FROM table_name
-  ORDER BY column_name(s)
-  FETCH FIRST number ROWS ONLY;
-
-  SELECT column_name(s)
-  FROM table_name
-  ORDER BY column_name(s)
-  FETCH FIRST number ROWS ONLY;
-
-  SELECT column_name(s)
-  FROM table_name
-  ORDER BY column_name(s)
-  FETCH FIRST number ROWS ONLY;
-
-  SELECT column_name(s)
-  FROM table_name
-  ORDER BY column_name(s)
-  FETCH FIRST number ROWS ONLY;
-  `
+  const code = query || 'SQL query here!'
 
   return (
     <div className='overflow-scroll'>
@@ -40,7 +20,7 @@ function Sqlbar() {
           </span>
           
           <CopyBlock
-            customStyle={{marginTop: '1rem', marginBottom: '1rem', height: '400px', overflow: 'scroll',}}
+            customStyle={{marginTop: '1rem', marginBottom: '1rem', height: '600px', overflow: 'scroll',}}
             text={code}
             language="sql"
             showLineNumbers={false}
@@ -49,7 +29,7 @@ function Sqlbar() {
           />
         </div>
 
-        <div className='overflow-scroll'>
+        {/* <div className='overflow-scroll'>
           <span className="w-full grid grid-cols-3 gap-2 m-4 mb-2">
             <span className='col-span-2 flex flex-col justify-center'>
               <h2 className='text-xl font-bold text-black'>Errors</h2>
@@ -75,7 +55,7 @@ function Sqlbar() {
               consectetur autem nihil quos debitis dolor culpa.
             </p>
           </div>
-        </div>
+        </div> */}
 
     </div>
   )
