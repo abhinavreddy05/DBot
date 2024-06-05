@@ -16,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   const inputRef = useRef(null)
+  const scrollRef = useRef(null)
 
   const sendMessage = async () => {
     setLoading(true)
@@ -36,6 +37,11 @@ function App() {
       setMessages(prevMessages => [...prevMessages, { role: 'bot', message: response.data.message }]);
       setSqlQuery(response.data.sql.query);
       setLoading(false)
+      scrollRef.current?.lastElementChild?.scrollIntoView({
+        behavior: "smooth",
+        block: 'nearest', 
+        inline: 'start'
+      });
     } catch (error) {
       console.error(error)
       setLoading(false)
@@ -53,12 +59,12 @@ function App() {
         className="grid grid-cols-1 transition-[grid-template-columns] lg:grid-cols-[1fr_400px] lg:[&:has(>*:last-child:hover)]:grid-cols-[1fr_460px] bg-gray-100"
       >
         <div className="m-4 relative">
-          <div className='h-[90svh] flex flex-col gap-2 overflow-scroll pb-8'>
+          <div className='h-[90svh] flex flex-col gap-2 overflow-scroll pb-8' ref={scrollRef}>
             {messages.map((message, index) => {
               if (message.role === 'bot') {
                 message.message = marked.parse(message.message)
                 return (
-                  <div key={index} className='p-4 w-fit max-w-11/12 mr-auto drop-shadow-sm'>
+                  <div key={index} className='p-4 min-w-[60%] w-fit max-w-[80%] mr-auto drop-shadow-sm'>
                     <span className='flex align-middle gap-1 bg-white w-fit px-2 py-1 rounded-full mb-1' style={{alignItems: "center"}}>
                       <img className='w-6 drop-shadow-lg' src={botwrite} alt="" />
                       <p className='text-sm font-semibold text-dark-blue'>DBot</p>
@@ -70,7 +76,7 @@ function App() {
                 );
               } else {
                 return (
-                  <div key={index} className='p-4 w-fit max-w-11/12 ml-auto drop-shadow-sm'>
+                  <div key={index} className='p-4 min-w-[60%] w-fit max-w-[80%] ml-auto drop-shadow-sm'>
                     <span className='flex align-middle gap-1 bg-light-blue w-fit px-2 py-1 mb-1 rounded-full ml-auto' style={{alignItems: "center"}}>
                       <img className='w-6 drop-shadow-lg' src={user} alt="" />
                       <p className='text-sm font-semibold text-dark-blue'>User</p>
