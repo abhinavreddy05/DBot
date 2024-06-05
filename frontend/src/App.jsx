@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Sidebar from './components/sidebar'
 import Sqlbar from './components/sqlbar'
 import axios from 'axios';
@@ -37,29 +37,30 @@ function App() {
       setMessages(prevMessages => [...prevMessages, { role: 'bot', message: response.data.message }]);
       setSqlQuery(response.data.sql.query);
       setLoading(false)
-      scrollRef.current?.lastElementChild?.scrollIntoView({
-        behavior: "smooth",
-        block: 'nearest', 
-        inline: 'start'
-      });
     } catch (error) {
       console.error(error)
       setLoading(false)
     }
   }
 
+  useEffect(() => {
+    scrollRef.current?.lastElementChild?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }, [messages])
+
   return (
     <div
       className="h-screen grid grid-cols-1 lg:grid-cols-[250px_1fr]"
     >
-      <div>
+      <div className='hidden lg:flex'>
         <Sidebar/>
       </div>
       <div
         className="grid grid-cols-1 transition-[grid-template-columns] lg:grid-cols-[1fr_400px] lg:[&:has(>*:last-child:hover)]:grid-cols-[1fr_460px] bg-gray-100"
       >
         <div className="m-4 relative">
-          <div className='h-[90svh] flex flex-col gap-2 overflow-scroll pb-8' ref={scrollRef}>
+          <div className='h-[80svh] lg:h-[90svh] flex flex-col gap-2 overflow-scroll pb-8' ref={scrollRef}>
             {messages.map((message, index) => {
               if (message.role === 'bot') {
                 message.message = marked.parse(message.message)
@@ -123,7 +124,7 @@ function App() {
               </span>
           </div>
         </div>
-        <div className="bg-white rounded-lg p-4 shadow-sm m-4 ml-0">
+        <div className="bg-white rounded-lg p-4 shadow-sm m-auto">
           <Sqlbar query={sqlQuery}/>
         </div>
       </div>
