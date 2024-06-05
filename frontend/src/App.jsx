@@ -25,7 +25,7 @@ function App() {
     inputRef.current.value = ''
 
     try {
-      const response = await axios.get('http://localhost:8888/chat', {
+      const response = await axios.get('https://dbot-cz1g.onrender.com/chat', {
         params: {
           message: userInput
         }
