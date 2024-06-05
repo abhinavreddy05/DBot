@@ -26,6 +26,7 @@ npm run dev
 #### Backend
 
 Configure the openai api key in the ```backend/app.py``` at line 28 as ```OPENAI_API_KEY="sk-......yourkey"```.
+At line 31 change the part ```{"origins": "https://db-bot.vercel.app"}``` to ```{"origins": "*"}``` for you to be able to run it in local.
 
 ```bash
 # Setup virtual environment and install dependencies
