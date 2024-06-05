@@ -28,7 +28,7 @@ from langchain_core.prompts import (
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://db-bot.vercel.app/"}})
+CORS(app, resources={r"/*": {"origins": "https://db-bot.vercel.app"}})
 
 db = SQLDatabase.from_uri('sqlite:///database.sqlite')
 
