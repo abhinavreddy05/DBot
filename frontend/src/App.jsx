@@ -26,7 +26,7 @@ function App() {
     inputRef.current.value = ''
 
     try {
-      const response = await axios.get('https://long-bird-6279.ploomberapp.io/chat', {
+      const response = await axios.get('https://dbot.ploomberapp.io/chat', {
         params: {
           message: userInput
         }
